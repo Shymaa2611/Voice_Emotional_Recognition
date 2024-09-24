@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 from training import Train
 from evaluate import Evaluate
+from utility import save_checkpoint
 
 def run():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -21,7 +22,9 @@ def run():
         print(f"Train Loss: {train_loss:.4f}")
         print(f"Val Loss: {val_loss:.4f}, Val Accuracy: {val_accuracy:.4f}")
 
-   
+    save_checkpoint("Checkpoint",model,optimizer,num_epochs,val_loss,val_accuracy)
 
 if __name__=="__main__":
     run()
+
+

@@ -45,7 +45,3 @@ def get_data(root_dir):
 
 
 
-
-
-
-
