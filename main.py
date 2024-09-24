@@ -15,8 +15,8 @@ def run():
     optimizer = optim.Adam(model.parameters(), lr=1e-5)
     num_epochs = 5
     for epoch in range(num_epochs):
-        train_loss = Train(model, train_loader, criterion, optimizer, device)
-        val_loss, val_accuracy = Evaluate(model, val_loader, criterion, device)
+        train_loss = Train(train_loader,model, criterion, optimizer, device)
+        val_loss, val_accuracy = Evaluate(val_loader,model, criterion, device)
         print(f"Epoch {epoch+1}/{num_epochs}")
         print(f"Train Loss: {train_loss:.4f}")
         print(f"Val Loss: {val_loss:.4f}, Val Accuracy: {val_accuracy:.4f}")
