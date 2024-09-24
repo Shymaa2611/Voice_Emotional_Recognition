@@ -5,6 +5,7 @@ import torch.nn as nn
 
 class VEModel(nn.Module):
     def __init__(self,num_classes):
+        super(VEModel, self).__init__()
         self.model=WhisperModel.from_pretrained("openai/whisper-base")
         self.classifier=nn.Linear(self.model.config.d_model,num_classes)
 
